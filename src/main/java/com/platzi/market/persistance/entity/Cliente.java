@@ -2,7 +2,9 @@ package com.platzi.market.persistance.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.List;
 
 @Entity
 @Table(name = "clientes")
@@ -19,6 +21,8 @@ public class Cliente {
     private String direccion;
 
     private String correo_electronico;
+    @OneToMany(mappedBy = "cliente")
+    private List<Compra> compras;
 
     public String getId() {
         return id;
