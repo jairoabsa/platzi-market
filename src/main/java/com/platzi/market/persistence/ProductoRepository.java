@@ -1,17 +1,17 @@
-package com.platzi.market.persistance;
+package com.platzi.market.persistence;
 
 import com.platzi.market.domain.Product;
 import com.platzi.market.domain.repository.ProductRepository;
-import com.platzi.market.persistance.crud.ProductoCrudRepository;
-import com.platzi.market.persistance.entity.Producto;
-import com.platzi.market.persistance.mapper.ProductMapper;
+import com.platzi.market.persistence.crud.ProductoCrudRepository;
+import com.platzi.market.persistence.entity.Producto;
+import com.platzi.market.persistence.mapper.ProductMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
-@Repository // Esto nos brinda la oportunidad de tener listoslos metodos productoCrudRepository.(todos los metodos find, get, delete, etc.)
+@Repository
 public class ProductoRepository implements ProductRepository {
     @Autowired
     private ProductoCrudRepository productoCrudRepository;
@@ -32,8 +32,8 @@ public class ProductoRepository implements ProductRepository {
 
     @Override
     public Optional<List<Product>> getScarseProducts(int quantity) {
-        Optional <List<Producto>> productos = productoCrudRepository.findByCantidadStockLessThanAndEstado(quantity, true);
-        return productos.map(prod -> mapper.toProducts(prod));
+        Optional<List<Producto>> productos = productoCrudRepository.findByCantidadStockLessThanAndEstado(quantity, true);
+        return productos.map(prods -> mapper.toProducts(prods));
     }
 
     @Override

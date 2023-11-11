@@ -1,4 +1,4 @@
-package com.platzi.market.persistance.entity;
+package com.platzi.market.persistence.entity;
 
 import javax.persistence.*;
 
@@ -9,7 +9,7 @@ public class ComprasProducto {
     private ComprasProductoPK id;
     private Integer cantidad;
 
-    private Integer total;
+    private Double total;
 
     private Boolean estado;
     @ManyToOne
@@ -35,11 +35,11 @@ public class ComprasProducto {
         this.cantidad = cantidad;
     }
 
-    public Integer getTotal() {
+    public Double getTotal() {
         return total;
     }
 
-    public void setTotal(Integer total) {
+    public void setTotal(Double total) {
         this.total = total;
     }
 
@@ -49,5 +49,21 @@ public class ComprasProducto {
 
     public void setEstado(Boolean estado) {
         this.estado = estado;
+    }
+
+    public Compra getCompra() {
+        return compra;
+    }
+
+    public void setCompra(Compra compra) {
+        this.compra = compra;
+    }
+
+    public Producto getProducto() {
+        return producto;
+    }
+
+    public void setProducto(Producto producto) {
+        this.producto = producto;
     }
 }

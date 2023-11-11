@@ -1,7 +1,7 @@
-package com.platzi.market.persistance.entity;
+package com.platzi.market.persistence.entity;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -14,15 +14,15 @@ public class Compra {
     @Column(name = "id_cliente")
     private String idCliente;
 
-    private Date fecha;
+    private LocalDateTime fecha;
     @Column(name = "medio_pago")
-    private Character medioPago;
+    private String medioPago;
 
     private String comentario;
 
-    private Character estado;
+    private String estado;
     @ManyToOne
-    @JoinColumn(name = "id-cliente", insertable = false, updatable = false)
+    @JoinColumn(name = "id_cliente", insertable = false, updatable = false)
     private Cliente cliente;
     @OneToMany(mappedBy = "producto")
     private List<ComprasProducto> productos;
@@ -43,19 +43,19 @@ public class Compra {
         this.idCliente = idCliente;
     }
 
-    public Date getFecha() {
+    public LocalDateTime getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(LocalDateTime fecha) {
         this.fecha = fecha;
     }
 
-    public Character getMedioPago() {
+    public String getMedioPago() {
         return medioPago;
     }
 
-    public void setMedioPago(Character medioPago) {
+    public void setMedioPago(String medioPago) {
         this.medioPago = medioPago;
     }
 
@@ -67,11 +67,19 @@ public class Compra {
         this.comentario = comentario;
     }
 
-    public Character getEstado() {
+    public String getEstado() {
         return estado;
     }
 
-    public void setEstado(Character estado) {
+    public void setEstado(String estado) {
         this.estado = estado;
     }
+
+    public List<ComprasProducto> getProductos() {
+        return productos;
+    }
+    public void setProductos(List<ComprasProducto> productos) {
+        this.productos = productos;
+    }
+
 }

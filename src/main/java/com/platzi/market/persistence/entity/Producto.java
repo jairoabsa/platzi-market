@@ -1,10 +1,10 @@
-package com.platzi.market.persistance.entity;
+package com.platzi.market.persistence.entity;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "productos")
-public class Producto {
+public class Producto {//es una buena practica llamar a las clases en 'singular'
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +23,7 @@ public class Producto {
 
     private Boolean estado;
     @ManyToOne
-    @JoinColumn(name = "id-categoria", insertable = false, updatable = false)
+    @JoinColumn(name = "id_categoria", insertable = false, updatable = false)
     private Categoria categoria;
 
     public Integer getIdProducto() {
@@ -80,5 +80,13 @@ public class Producto {
 
     public void setEstado(Boolean estado) {
         this.estado = estado;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 }

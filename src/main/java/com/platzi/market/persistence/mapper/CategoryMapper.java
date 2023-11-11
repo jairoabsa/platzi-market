@@ -1,17 +1,15 @@
-package com.platzi.market.persistance.mapper;
+package com.platzi.market.persistence.mapper;
 
 import com.platzi.market.domain.Category;
-import com.platzi.market.persistance.entity.Categoria;
+import com.platzi.market.persistence.entity.Categoria;
 import org.mapstruct.*;
-
-import java.awt.*;
 
 @Mapper(componentModel = "spring")
 public interface CategoryMapper {
     @Mappings({
             @Mapping(source = "idCategoria", target = "categoryId"),
             @Mapping(source = "descripcion", target = "category"),
-            @Mapping(source = "estado", target = "active")
+            @Mapping(source = "estado", target = "active"),
     })
     Category toCategory(Categoria categoria);
 @InheritInverseConfiguration

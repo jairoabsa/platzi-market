@@ -1,9 +1,6 @@
-package com.platzi.market.persistance.entity;
+package com.platzi.market.persistence.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -16,11 +13,12 @@ public class Cliente {
 
     private String apellidos;
 
-    private Integer celular;
+    private Long celular;
 
     private String direccion;
 
-    private String correo_electronico;
+    @Column(name = "correo_electronico")
+    private String correoElectronico;
     @OneToMany(mappedBy = "cliente")
     private List<Compra> compras;
 
@@ -48,11 +46,11 @@ public class Cliente {
         this.apellidos = apellidos;
     }
 
-    public Integer getCelular() {
+    public Long getCelular() {
         return celular;
     }
 
-    public void setCelular(Integer celular) {
+    public void setCelular(Long celular) {
         this.celular = celular;
     }
 
@@ -64,11 +62,11 @@ public class Cliente {
         this.direccion = direccion;
     }
 
-    public String getCorreo_electronico() {
-        return correo_electronico;
+    public String getCorreoElectronico() {
+        return correoElectronico;
     }
 
-    public void setCorreo_electronico(String correo_electronico) {
-        this.correo_electronico = correo_electronico;
+    public void setCorreoElectronico(String correoElectronico) {
+        this.correoElectronico = correoElectronico;
     }
 }
