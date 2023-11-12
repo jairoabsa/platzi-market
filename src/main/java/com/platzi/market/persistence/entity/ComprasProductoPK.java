@@ -8,7 +8,7 @@ import java.io.Serializable;
 public class ComprasProductoPK implements Serializable {
     @Column(name = "id_compra")
     private Integer idCompra;
-    @Column(name = "id-producto")
+    @Column(name = "id_producto")
     private Integer idProducto;
 
     public Integer getIdCompra() {
