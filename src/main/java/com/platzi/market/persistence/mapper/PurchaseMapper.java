@@ -7,7 +7,6 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 
-import javax.persistence.Id;
 import java.util.List;
 
 @Mapper(componentModel = "spring", uses = {PurchaseItemMapper.class})
